@@ -18,8 +18,8 @@ The learning objectives for this practical are:
 
 For the problems in which you have to implement a program that
 solves some arithmetic problem that we have solved in class at the
-blackboard, you should have already one working solution on paper from
-that class. If you don't, please ask a colleague for one. Try
+blackboard, you should have already one working solution from that class
+on paper. If you don't, please ask a colleague for one. Try
 to focus the time of this practical in addressing the technical challenges
 of running a Python program and correcting run-time errors.
 
@@ -28,7 +28,7 @@ entitled "Debugging".
 
 # Setup and background
 
-To do this practical we need an installation of Python version 3. You can find
+To do this practical you need an installation of Python version 3. You can find
 the instructions in the [setup](/setup/) link on how to install Python version 3
 in your system. Once Python is installed, you should be able to call it from
 the shell in the terminal window. You can check whether that is possible by typing:
@@ -40,7 +40,7 @@ $ python --version
 
 It may happen that you have two Python installations, one corresponding
 to version 2.x and another to version 3.x. In that situation the previous command
-by say that your Python version is 2.x and to access the version 3 you need to call
+may say that your Python version is 2.x and to access the version 3 you need to call
 the executable `python3`. Try then for instance:
 
 ```
@@ -72,7 +72,7 @@ hello.py
 
 Once you have your file stored with the previous `print()` line, make sure the file contains
 exactly what you have typed in the text editor by exploring its contents with the
-`cat` command:
+Unix `cat` command:
 
 ```
 $ cat hello.py
@@ -81,15 +81,15 @@ print("Hello World!")
 
 If the contents are different, then probably you have not saved what you typed in the
 text editor. Go to the text editor and save the file. Once we have typed this Python
-one-liner program, saved and made sure the file is in our CWD and contains the expected
-source code, we can run it by calling the command `python` with the filename of our
+one-liner program, saved it and made sure the file is in your CWD, containing the expected
+source code, you can run it by calling the command `python` with the filename of the
 program as argument:
 
 ```
 $ python hello.py 
 Hello World!
 ```
-We should be getting the message "Hello World!" on the screen.
+We should be getting the message "Hello World!" on the terminal window.
 
 # Read data from the keyboard into a Python program.
 
@@ -110,7 +110,7 @@ The program will ask you to enter a value. Enter any value, for instance a numer
 value 10, or a character string "hello" (without the quotes), and press the `Enter`
 key. If you have been able to run this without an error, think about what has happened.
 Look at the source code. Try to understand how the value you typed came back on the
-terminal window?
+terminal window.
 
 # Adding two numbers
 
@@ -170,7 +170,7 @@ Implement a program in Python that asks for an integer number and calculates its
 
 Implement a program in Python that asks for two numbers, a positive integer number,
 which will be the base, and a non-negative integer number, which will be the power,
-and calculates the base raised to the power.
+and calculates the [base raised to the power](https://en.wikipedia.org/wiki/Exponentiation).
 
 # Perfect numbers 
 
@@ -191,10 +191,15 @@ Bugs can be caused by as little as a single letter causing a syntax error. This 
 for instance, in 1988 of the failed mission to Mars by the
 [Phobos 1](https://en.wikipedia.org/wiki/Phobos_1) space probe, which lost communication with
 ground control by a missing hyphen (`-`) in one of the commands that was unintentionally left
-out by a technician.
+out by a technician (remember this guy next time you think you had a bad day in front of the
+computer).
 
-Debugging can be time consuming but the more you debug, the faster you do it. It is a detective
-kind of task. Here we illustrate how to do start debugging your Python programs.
+Debugging can be time consuming but the more you debug, the faster you do it. It is a kind
+of detective task, so pay attention to the clues that Python will give you when printing
+error messages, **read them carefully**. Here we illustrate how to start debugging your
+Python programs.
+
+## A straightforward syntax error
 
 Let's say that in the first line of the `add.py` Python program we forget closing the
 double quotes of the character string:
@@ -226,7 +231,9 @@ Here, EOL means _end of line_ and the message suggests that while reading the st
 literal that started with double quotes, it found the end of line before finding the
 closing pair of double quotes.
 
-Another error, a bit more dificult to understand occurs if in the Python program
+## A cryptic syntax error
+
+An error slightly more dificult to identify occurs if in the Python program
 `add.py` we remove the last character `)` from the third line:
 
 ```
@@ -326,3 +333,7 @@ From this output, we should be able to figure out two facts: (1) the variable
 `i` is not changing; and (2) the variable `s` is infinitely growing by one. These
 two facts will help us drawing the conclusion that the assignment `i = i + 1`
 should be part of the loop statement.
+
+Watching variables can help also debugging our programs when they do end but
+do not provide the expected result. They should help us to identify the place
+in the program where they are taking the wrong value.
