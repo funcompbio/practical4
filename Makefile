@@ -1,2 +1,2 @@
 all : practical4.md
-	pandoc practical4.md -o _site/practical4.html
+	pandoc practical4.md -o docs/practical4.html

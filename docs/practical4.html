@@ -9,8 +9,8 @@
 <li>Correct syntax errors in Python.</li>
 <li>How to debug your program by watching variables.</li>
 </ul>
-<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution from that class on paper. If you don't, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
-<p>Whenever you are stuck with an error, please consult the last section entitled &quot;Debugging&quot;.</p>
+<p>For the problems in which you have to implement a program that solves some arithmetic problem that we have solved in class at the blackboard, you should have already one working solution from that class on paper. If you don’t, please ask a colleague for one. Try to focus the time of this practical in addressing the technical challenges of running a Python program and correcting run-time errors.</p>
+<p>Whenever you are stuck with an error, please consult the last section entitled “Debugging”.</p>
 <h1 id="setup-and-background">Setup and background</h1>
 <p>To do this practical you need an installation of Python version 3. You can find the instructions in the <a href="/setup/">setup</a> link on how to install Python version 3 in your system. Once Python is installed, you should be able to call it from the shell in the terminal window. You can check whether that is possible by typing:</p>
 <pre><code>$ which python
@@ -18,6 +18,22 @@ $ python --version</code></pre>
 <p>It may happen that you have two Python installations, one corresponding to version 2.x and another to version 3.x. In that situation the previous command may say that your Python version is 2.x and to access the version 3 you need to call the executable <code>python3</code>. Try then for instance:</p>
 <pre><code>$ python3 --version</code></pre>
 <p>If this is your case, then whenever the executable <code>python</code> is invoked in the rest of this practical, please use <code>python3</code> instead.</p>
+<h1 id="the-python-interpreter">The Python interpreter</h1>
+<p>The Python executable (<code>python</code> or <code>python3</code>) that at this point you can run from the Unix shell can either work interactively or by giving a text file with a Python program to be executed. In either case, it works as a programming language <a href="https://en.wikipedia.org/wiki/Interpreter_%28computing%29">interpreter</a> rather than a <a href="https://en.wikipedia.org/wiki/Compiler">compiler</a>, which means that it will directly execute the Python instructions you give to it.</p>
+<h1 id="running-python-interactively">Running Python interactively</h1>
+<p>To run Python interactively just type <code>python</code> (or <code>python3</code> if that your case) on the Unix <em>shell</em> and you should get an output similar to this one:</p>
+<pre><code>$ python
+Python 3.6.8 (default, Aug  7 2019, 17:28:10) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-39)] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; </code></pre>
+<p>Here the three symbols <code>&gt;&gt;&gt;</code> are the Python <a href="https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt">command prompt</a> that indicate that the Python interpreter is ready to accept input. Try, for instance, to type some arithmetic operation such as:</p>
+<pre><code>&gt;&gt;&gt; 1 + 1</code></pre>
+<p>Now try to execute the following Python <code>print()</code> instruction:</p>
+<pre><code>&gt;&gt;&gt; print(&quot;Hello World!&quot;)</code></pre>
+<p>To quit the Python interactive interpreter type:</p>
+<pre><code>&gt;&gt;&gt; quit()</code></pre>
+<p>In the Python interactive interpreter you can type any Python instruction and it will be immediately and interactively executed. However, this is not the usual way to execute Python programs that consists of several lines. In general, you want to execute Python programs by writing them in text files with filename extension <code>.py</code> and running them from the Unix shell as described in the following section.</p>
 <h1 id="run-your-first-python-program-from-the-unix-shell">Run your first Python program from the Unix shell</h1>
 <p>Make a directory for this practical, called <code>practical4</code>. Open a text editor, starting a new empty text file called file called <code>hello.py</code>, which should be stored within the directory <code>practical4</code>. Inside this empty file <code>hello.py</code>, please write the following line:</p>
 <pre><code>print(&quot;Hello World!&quot;)</code></pre>
@@ -30,14 +46,14 @@ print(&quot;Hello World!&quot;)</code></pre>
 <p>If the contents are different, then probably you have not saved what you typed in the text editor. Go to the text editor and save the file. Once we have typed this Python one-liner program, saved it and made sure the file is in your CWD, containing the expected source code, you can run it by calling the command <code>python</code> with the filename of the program as argument:</p>
 <pre><code>$ python hello.py 
 Hello World!</code></pre>
-<p>We should be getting the message &quot;Hello World!&quot; on the terminal window.</p>
+<p>We should be getting the message “Hello World!” on the terminal window.</p>
 <h1 id="read-data-from-the-keyboard-into-a-python-program.">Read data from the keyboard into a Python program.</h1>
 <p>Create a new Python program called <code>inputoutput.py</code> with the following contents:</p>
 <pre><code>x = input(&quot;Enter a value: &quot;)
 print(x)</code></pre>
 <p>Store it on disk and call it from the command line by doing:</p>
 <pre><code>$ python inputoutput.py</code></pre>
-<p>The program will ask you to enter a value. Enter any value, for instance a numerical value 10, or a character string &quot;hello&quot; (without the quotes), and press the <code>Enter</code> key. If you have been able to run this without an error, think about what has happened. Look at the source code. Try to understand how the value you typed came back on the terminal window.</p>
+<p>The program will ask you to enter a value. Enter any value, for instance a numerical value 10, or a character string “hello” (without the quotes), and press the <code>Enter</code> key. If you have been able to run this without an error, think about what has happened. Look at the source code. Try to understand how the value you typed came back on the terminal window.</p>
 <h1 id="adding-two-numbers">Adding two numbers</h1>
 <p>Here we are going to implement a Python program that reads two numbers from the keyboard, adds them and prints the result on the terminal window. Open a new file in the text editor called <code>add.py</code> and type the following code:</p>
 <pre><code>x = input(&quot;Enter one value: &quot;)
@@ -67,7 +83,7 @@ print(z)</code></pre>
 <p><a href="https://en.wikipedia.org/wiki/Debugging">Debugging</a> is the process of finding and correcting bugs in computer programs. A <a href="https://en.wikipedia.org/wiki/Software_bug">bug</a> in this context is an unintended error in a computer program that produces an incorrect or unexpected result. Bugs can be caused by as little as a single letter causing a syntax error. This was the case, for instance, in 1988 of the failed mission to Mars by the <a href="https://en.wikipedia.org/wiki/Phobos_1">Phobos 1</a> space probe, which lost communication with ground control by a missing hyphen (<code>-</code>) in one of the commands that was unintentionally left out by a technician (remember this guy next time you think you had a bad day in front of the computer).</p>
 <p>Debugging can be time consuming but the more you debug, the faster you do it. It is a kind of detective task, so pay attention to the clues that Python will give you when printing error messages, <strong>read them carefully</strong>. Here we illustrate how to start debugging your Python programs.</p>
 <h2 id="a-straightforward-syntax-error">A straightforward syntax error</h2>
-<p>Let's say that in the first line of the <code>add.py</code> Python program we forget closing the double quotes of the character string:</p>
+<p>Let’s say that in the first line of the <code>add.py</code> Python program we forget closing the double quotes of the character string:</p>
 <pre><code>x = input(&quot;Enter one value: )</code></pre>
 <p>This will cause the following syntax error:</p>
 <pre><code>$ python add.py 
@@ -99,7 +115,7 @@ while (i &lt;= x) :
     i = i + 1
 
 print(s)</code></pre>
-<p>Now, let's say we unintentionally leave the instruction that increases the variable <code>i</code> outside the loop statement:</p>
+<p>Now, let’s say we unintentionally leave the instruction that increases the variable <code>i</code> outside the loop statement:</p>
 <pre><code>x = int(input(&quot;Enter one value: &quot;))
 s = 0
 i = 1

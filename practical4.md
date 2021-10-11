@@ -50,6 +50,54 @@ $ python3 --version
 If this is your case, then whenever the executable `python` is invoked in the rest of
 this practical, please use `python3` instead.
 
+# The Python interpreter
+
+The Python executable (`python` or `python3`) that at this point you can run from
+the Unix shell can either work interactively or by giving a text file with a
+Python program to be executed. In either case, it works as a programming
+language
+[interpreter](https://en.wikipedia.org/wiki/Interpreter_%28computing%29) rather
+than a
+[compiler](https://en.wikipedia.org/wiki/Compiler), which means that it will
+directly execute the Python instructions you give to it.
+
+# Running Python interactively
+
+To run Python interactively just type `python` (or `python3` if that your case)
+on the Unix _shell_ and you should get an output similar to this one:
+
+```
+$ python
+Python 3.6.8 (default, Aug  7 2019, 17:28:10) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-39)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+Here the three symbols `>>>` are the Python
+[command prompt](https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt)
+that indicate that the Python interpreter is ready to accept input. Try, for instance,
+to type some arithmetic operation such as:
+
+```
+>>> 1 + 1
+```
+Now try to execute the following Python `print()` instruction:
+
+```
+>>> print("Hello World!")
+```
+To quit the Python interactive interpreter type:
+
+```
+>>> quit()
+```
+In the Python interactive interpreter you can type any Python instruction and
+it will be immediately and interactively executed. However, this is not the
+usual way to execute Python programs that consists of several lines. In general,
+you want to execute Python programs by writing them in text files with filename
+extension `.py` and running them from the Unix shell as described in the
+following section.
+
 # Run your first Python program from the Unix shell
 
 Make a directory for this practical, called `practical4`. Open a text editor, starting
