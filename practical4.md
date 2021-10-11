@@ -85,6 +85,7 @@ Now try to execute the following Python `print()` instruction:
 
 ```
 >>> print("Hello World!")
+
 ```
 To quit the Python interactive interpreter type:
 
