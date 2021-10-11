@@ -50,7 +50,7 @@ $ python3 --version
 If this is your case, then whenever the executable `python` is invoked in the rest of
 this practical, please use `python3` instead.
 
-# The Python interpreter
+# Running Python interactively
 
 The Python executable (`python` or `python3`) that at this point you can run from
 the Unix shell can either work interactively or by giving a text file with a
@@ -59,12 +59,11 @@ language
 [interpreter](https://en.wikipedia.org/wiki/Interpreter_%28computing%29) rather
 than a
 [compiler](https://en.wikipedia.org/wiki/Compiler), which means that it will
-directly execute the Python instructions you give to it.
-
-# Running Python interactively
-
-To run Python interactively just type `python` (or `python3` if that your case)
-on the Unix _shell_ and you should get an output similar to this one:
+directly execute the Python instructions you give to it. Among other things, this
+means that Python can be run
+[interactively](https://en.wikipedia.org/wiki/Interactivity).
+To run Python interactively just type `python` on the Unix shell and you should
+get an output similar to this one:
 
 ```
 $ python
@@ -73,7 +72,8 @@ Python 3.6.8 (default, Aug  7 2019, 17:28:10)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
-Here the three symbols `>>>` are the Python
+The first three lines above are a message about the version of Python and other
+system components and the three symbols at the end (`>>>`) are the Python
 [command prompt](https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt)
 that indicate that the Python interpreter is ready to accept input. Try, for instance,
 to type some arithmetic operation such as:
@@ -81,23 +81,63 @@ to type some arithmetic operation such as:
 ```
 >>> 1 + 1
 ```
-Now try to execute the following Python `print()` instruction:
+Now try to execute the following Python `print()` instruction, which should print
+the message `Hello World!` below that instruction.
 
 ```
 >>> print("Hello World!")
+```
+An interesting exercise to do from the Python interpreter is to see how Python
+identifies different types of values with the function `type()`:
 
 ```
-To quit the Python interactive interpreter type:
+>>> type(1)
+<class 'int'>
+```
+Here Python is telling as the the number `1` is of _class_ `int`, which is a
+shorthand for _integer_. Let's try some different types of values:
+
+```
+>>> type("Hello World!")
+<class 'str'>
+>>> type(3.14)
+<class 'float'>
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>
+```
+Here `str` refers to a
+[_string of characters_](https://en.wikipedia.org/wiki/String_%28computer_science%29)
+`float` to a
+[_floating-point number_](https://en.wikipedia.org/wiki/Floating-point_arithmetic)
+and `bool` to a
+[_boolean data type_](https://en.wikipedia.org/wiki/Boolean_data_type). These are
+part of the so-called _Python built-in data types_. If you have a variable `x` for
+which you don't know what kind of data type is storing, you can find it out with
+a call to the function type, for instance:
+
+```
+>>> x = 10
+>>> type(x)
+<class 'int'>
+>>> y = x > 5
+>>> type(y)
+<class 'bool'>
+```
+
+To quit the Python interactive interpreter you can either press `Ctrl+d` or type:
 
 ```
 >>> quit()
 ```
-In the Python interactive interpreter you can type any Python instruction and
-it will be immediately and interactively executed. However, this is not the
-usual way to execute Python programs that consists of several lines. In general,
-you want to execute Python programs by writing them in text files with filename
-extension `.py` and running them from the Unix shell as described in the
-following section.
+As your have just seen, in the Python interactive interpreter you can type any
+Python instruction and it will be immediately and interactively executed.
+However, this is not the usual way to execute Python programs that consists of
+several lines. In general, you want to execute Python programs by writing them
+in text files with filename extension `.py` and running them from the Unix shell
+as described in the following section, which is also the way in which we will
+work throughout the rest of this practical.
 
 # Run your first Python program from the Unix shell
 
@@ -142,7 +182,13 @@ We should be getting the message "Hello World!" on the terminal window.
 
 # Read data from the keyboard into a Python program.
 
-Create a new Python program called `inputoutput.py` with the following contents:
+Most computer programs read some input, make some calculations and write some
+output. For each of these three tasks we should use some specific Python
+instructions. In the case of reading input from the keyboard, we can use the
+function `input()` to which we give one argument with some text we want to
+display on screen and it will return whatever we type on the keyboard
+**as a character string**. For instance, create a new Python program called
+`inputoutput.py` with the following contents:
 
 ```
 x = input("Enter a value: ")
@@ -182,26 +228,32 @@ strings leads to their concatenation, instead of the arithmetic operation we wan
 The function `int()` coerces a character string of a number into its corresponding
 numeric-type value.
 
-Now replace the last line with the call to the `print()` function, by this other one:
+Now replace the last line with the call to the `print()` function, by this other
+one and save and execute the program again:
 
 ```
 print("The sum of %s and %s is %d" %(x, y, z))
 ```
 
-In this call to the `print()` function we are using the symbols `%s` and `%d` to,
-respectively, indicate that in those places of the sentence we are going to put
-a character string and an integer number. The actual values are written next to the
-character string of the sentence by using the syntax `%(x, y, z)`, which contains a
-comma-separated vector of the variables whose values we want to print.
-
-Save now the file and execute the program again. Note that the output is now a sentence
-like:
+You should obtain an output of the form:
 
 ```
 The sum of 3 and 4 is 7
 ```
 
-Copy the file of this program `add.py` into another file called `mean.py`. Open
+In this new call to the `print()` function the character string
+`"The sum of %s and %s is %d"` is a so-called
+[format string](https://en.wikipedia.org/wiki/Printf_format_string), where
+symbols `%s` and `%d` are _format specifiers_, which are nothing else than
+placeholders for values that we want to insert within the string. Those
+values are specified right after the format string, in this example, as
+`%(x, y, z)`, where `x`, `y` and `z` are variables whose content is in
+one-to-one correspondence with the format specifiers. For this reason,
+because `x` and `y` contain character strings, the first two format
+specifiers are `%s`, while the third one is `%d` because the value in
+variable `z` is a numerical integer value.
+
+Now copy the file of this program `add.py` into another file called `mean.py`. Open
 `mean.py` with the text editor and modify the code to provide the calculation of the
 arithmetic mean of two values.
 
