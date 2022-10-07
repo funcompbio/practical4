@@ -131,9 +131,9 @@ To quit the Python interactive interpreter you can either press `Ctrl+d` or type
 ```
 >>> quit()
 ```
-As your have just seen, in the Python interactive interpreter you can type any
+As you have just seen, in the Python interactive interpreter you can type any
 Python instruction and it will be immediately and interactively executed.
-However, this is not the usual way to execute Python programs that consists of
+However, this is not the usual way to execute Python programs that consist of
 several lines. In general, you want to execute Python programs by writing them
 in text files with filename extension `.py` and running them from the Unix shell
 as described in the following section, which is also the way in which we will
