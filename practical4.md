@@ -232,7 +232,7 @@ Now replace the last line with the call to the `print()` function, by this other
 one and save and execute the program again:
 
 ```
-print("The sum of %s and %s is %d" %(x, y, z))
+print(f"The sum of {x} and {y} is {z}")
 ```
 
 You should obtain an output of the form:
@@ -242,16 +242,25 @@ The sum of 3 and 4 is 7
 ```
 
 In this new call to the `print()` function the character string
-`"The sum of %s and %s is %d"` is a so-called
-[format string](https://en.wikipedia.org/wiki/Printf_format_string), where
-symbols `%s` and `%d` are _format specifiers_, which are nothing else than
-placeholders for values that we want to insert within the string. Those
-values are specified right after the format string, in this example, as
-`%(x, y, z)`, where `x`, `y` and `z` are variables whose content is in
-one-to-one correspondence with the format specifiers. For this reason,
-because `x` and `y` contain character strings, the first two format
-specifiers are `%s`, while the third one is `%d` because the value in
-variable `z` is a numerical integer value.
+`f"The sum of {x} and {y} is {z}"` is a so-called
+[formatted string literal](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings),
+where symbols `{x}`, `{y}` and `{z}` are nothing else than placeholders to be
+replaced by the values referred to by the variables with those names.
+Placeholders in the formatted string literal admit so-called _format specifiers_
+that provider greater control over how values are displayed. For instance, if in
+the previous example we would like to provide the result with one decimal digit,
+we would use the instruction:
+
+```
+print(f"The sum of {x} and {y} is {z:.1f}")
+```
+
+where `{z:.1f}` indicates to print the numerical value of `z` with one decimal
+digit. This would provide the following output:
+
+```
+The sum of 3 and 4 is 7.0
+```
 
 Now copy the file of this program `add.py` into another file called `mean.py`. Open
 `mean.py` with the text editor and modify the code to provide the calculation of the
